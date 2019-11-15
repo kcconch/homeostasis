@@ -1,3 +1,3 @@
 # Homeostasis
 
-file name of the scene is Homeostasis.unity
+The scene for testing is Assets/Scenes/Homeostasis.unity
