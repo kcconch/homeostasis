@@ -88,8 +88,8 @@ public class View : MonoBehaviour
 
         y = Remap(y, -90, 90, -5000, 5000);
 
-        Ray inputRay = Camera.main.ScreenPointToRay(new Vector3(transform.position.x, y, 0));
-        // Ray inputRay = Camera.main.ScreenPointToRay(new Vector3(3840, y, 0));
+        // Ray inputRay = Camera.main.ScreenPointToRay(new Vector3(transform.position.x, y, 0));
+        Ray inputRay = Camera.main.ScreenPointToRay(new Vector3(3840, y, 0));
 
         // Debug.Log(   (y * y )/ 5);
         // Debug.Log(y);

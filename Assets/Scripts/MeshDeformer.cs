@@ -4,7 +4,7 @@
 public class MeshDeformer : MonoBehaviour {
 
 	public float springForce = 20f;
-	public float damping = 20f;
+	public float damping = 5f;
 
 	Mesh deformingMesh;
 	Vector3[] originalVertices, displacedVertices;
@@ -54,7 +54,7 @@ public class MeshDeformer : MonoBehaviour {
 		// pointToVertex.x *= 4f;
 		// pointToVertex.y *= 0.5f;
 		pointToVertex *= uniformScale;
-		float attenuatedForce = force / (200f * pointToVertex.sqrMagnitude);
+		float attenuatedForce = force / (2000f * pointToVertex.sqrMagnitude);
 		float velocity = attenuatedForce * Time.deltaTime;
 		vertexVelocities[i] += pointToVertex.normalized * velocity;
 	}
