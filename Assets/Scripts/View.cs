@@ -8,6 +8,8 @@ public class View : MonoBehaviour
 {
     public ClientData data;
 
+    public static Camera deformCam;
+
     public static float force = 100000f;
     public static float forceOffset = 1f;
 
@@ -28,8 +30,14 @@ public class View : MonoBehaviour
 
     public static View Create(ClientData data)
     {
+
+        // deformCam = givenCamera;
         // ReSharper disable once PossibleNullReferenceException
-        var pos = Camera.main.ViewportToWorldPoint(new Vector3(Random.value, Random.value, 0));
+        Debug.Log("Attempting cam setup");
+        deformCam = GameObject.FindWithTag("deform").GetComponent<Camera>();
+        var pos = deformCam.ViewportToWorldPoint(new Vector3(Random.value, Random.value, 0));
+        Debug.Log("Completed cam setup");
+
         var xPos = Mathf.Abs(pos.x) * 2f;
         
         // return null;   
@@ -66,7 +74,9 @@ public class View : MonoBehaviour
     }
 
 
-    // private void Start() {
+    // public void Start() {
+
+    //     deformCam = GameObject.FindWithTag("deform").GetComponent<Camera>();
 
     // }
 
@@ -88,8 +98,8 @@ public class View : MonoBehaviour
 
         y = Remap(y, -90, 90, -5000, 5000);
 
-        // Ray inputRay = Camera.main.ScreenPointToRay(new Vector3(transform.position.x, y, 0));
-        Ray inputRay = Camera.main.ScreenPointToRay(new Vector3(3840, y, 0));
+        Ray inputRay = deformCam.ScreenPointToRay(new Vector3(transform.position.x, y, 0));
+        // Ray inputRay = deformCam.ScreenPointToRay(new Vector3(3840, y, 0));
 
         // Debug.Log(   (y * y )/ 5);
         // Debug.Log(y);

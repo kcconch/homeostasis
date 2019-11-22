@@ -3,7 +3,7 @@
 [RequireComponent(typeof(MeshFilter))]
 public class MeshDeformer : MonoBehaviour {
 
-	public float springForce = 20f;
+	public float springForce = 1f;
 	public float damping = 5f;
 
 	Mesh deformingMesh;
@@ -54,7 +54,7 @@ public class MeshDeformer : MonoBehaviour {
 		// pointToVertex.x *= 4f;
 		// pointToVertex.y *= 0.5f;
 		pointToVertex *= uniformScale;
-		float attenuatedForce = force / (2000f * pointToVertex.sqrMagnitude);
+		float attenuatedForce = force / (500f * pointToVertex.sqrMagnitude);
 		float velocity = attenuatedForce * Time.deltaTime;
 		vertexVelocities[i] += pointToVertex.normalized * velocity;
 	}
