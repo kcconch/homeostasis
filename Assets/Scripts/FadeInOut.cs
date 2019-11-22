@@ -21,7 +21,7 @@ public class FadeInOut : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        Debug.Log(timer);
+        // Debug.Log(timer);
 
         // If the scene is starting...
         if (sceneStarting && timer > waitTime)

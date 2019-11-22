@@ -96,7 +96,7 @@ public class ReflectionCamera : MonoBehaviour
             go.transform.rotation = transform.rotation;
             reflectionCamera.cullingMask = CullingMask; 
             reflectionCamera.targetTexture = renderTexture;
-            reflectionCamera.hdr = HDR;
+            reflectionCamera.allowHDR = HDR;
             reflectionCamera.useOcclusionCulling = OcclusionCulling;
             Shader.SetGlobalTexture("_ReflectionTex", renderTexture);
             instanceCameraTransform = reflectionCamera.transform;
